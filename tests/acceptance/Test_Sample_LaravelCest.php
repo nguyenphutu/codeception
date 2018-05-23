@@ -7,6 +7,18 @@ class Test_Sample_LaravelCest
     public function frontpageWorks(AcceptanceTester $I)
     {
 		$I -> amOnPage('/');
-		$I -> see('Laravel');
+		$I -> seeInTitle('Laravel');
+		$I -> seeElement('.title');
+		$I -> see('Laravel', '.title');
+    }
+	public function hasLinkDocLaravel(AcceptanceTester $I)
+    {
+		$I -> amOnPage('/');
+		$I -> seeElement('.links');
+		$I -> seeLink('Documentation');
+		$I -> seeLink('Laracasts');
+		$I -> seeLink('News');
+		$I -> seeLink('Forge');
+		$I -> seeLink('GitHub');
     }
 }
